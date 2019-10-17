@@ -11,6 +11,6 @@ export default props =>
             totalItemsCount={props.totalItemsCount}
             pageRangeDisplayed={3}
             hideFirstLastPages
-            onChange={props.changePage(2)}        
+            onChange={props.changePage()}        
         />
     </div>

@@ -7,21 +7,20 @@ import axios from 'axios'
 export default class List extends Component {
     constructor(props) {
         super(props);
-        this.changePage = this.changePage.bind(this);
-    }
 
-    state = {
-        posts: [],
-        currentPage: null,
-        totalItemsCount: null
+        this.state = {
+            posts: [],
+            currentPage: 1,
+            totalItemsCount: null
+        }
     }
 
     componentDidMount() {
-        this.getPosts()
+        this.getPosts(this.state.currentPage)
     }
 
-    changePage = page => {
-        
+    changePage = (page) => {
+        this.getPosts(page)
     }
     
     getPosts = async (page) => {
@@ -39,7 +38,7 @@ export default class List extends Component {
                         <div className="list-area">
                             <ul>
                                 {this.state.posts.map(post => (
-                                    <li className="row">
+                                    <li key={post.id} className="row">
                                         <ul className="grid-area">
                                             <li className="title">{post.title}</li>
                                             <li className="author">Moovin Plataforma E-commerce</li>
@@ -50,7 +49,7 @@ export default class List extends Component {
                             </ul>
                         </div>
                     </div>
-                    <NavigationBarBottom totalPosts={this.state.posts.length} currentPage={this.state.currentPage} totalItemsCount={this.state.totalItemsCount} changePage={this.changePage} />
+                    <NavigationBarBottom totalPosts={this.state.posts.length} currentPage={this.state.currentPage} totalItemsCount={this.state.totalItemsCount} changePage={()=> this.changePage} />
                 </div>
             </div>
         ) 

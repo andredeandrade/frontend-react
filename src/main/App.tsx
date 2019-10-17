@@ -1,7 +1,6 @@
 import React from 'react'
-import '../styles/app.scss'
 import Header from '../components/template/Header'
-import List from '../components/list/List.jsx'
+import List from '../components/list/List'
 
 const App: React.FC = () => {
 	return (
