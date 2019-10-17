@@ -3,6 +3,7 @@ import NavigationBarTop from './Navigation_bar_top'
 import NavigationBarBottom from './Navigation_bar_bottom'
 import '../../styles/list.scss'
 import axios from 'axios'
+const ApiKey = process.env.REACT_APP_GOREST_KEY
 
 export default class List extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ export default class List extends Component {
     }
     
     getPosts = async (page) => {
-        const res = await axios.get(`https://gorest.co.in/public-api/posts?access-token=GXLruXh3SKFUpvzx6NIwq0YwWLh-08apnCt-&page=${page}`)
+        const res = await axios.get(`https://gorest.co.in/public-api/posts?access-token=${ApiKey}&page=${page}`)
         this.setState({ posts: res.data.result, currentPage: res.data._meta.currentPage, totalItemsCount: res.data._meta.totalCount })
     }
 
