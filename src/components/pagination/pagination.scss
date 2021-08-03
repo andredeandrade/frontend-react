@@ -1,0 +1,48 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid #EFEEEE;
+  border-left: 1px solid #EFEEEE;
+  border-right: 1px solid #EFEEEE;
+  padding: 0 30px 0 20px;
+
+  .results-content {
+    font-size: 13px;
+    color: #494949;
+  }
+
+  .pages-content {
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      li {
+        margin: 0 5px;
+        cursor: pointer;
+        &.navigation-page {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 13px;
+          font-weight: 800;
+          width: 22px;
+          height: 23px;
+        }
+        &.active {
+          border-radius: 3px;
+          border: 2px solid #A3A3A3;
+        }
+        &.disabled {
+          display: none;
+        }
+      }
+      .navigation-arrow {
+        &.left {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
